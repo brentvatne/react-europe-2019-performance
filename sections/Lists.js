@@ -37,13 +37,12 @@ export default class Lists extends React.Component {
     this.setState({ searchText }, () => {
       this._executeSearch();
     });
-  //   track('update query', global.nativePerformanceNow(), () => {
-  //     this.setState({ searchText }, () => {
-  //       this._executeSearch();
-  //     });
-  //   })
-  }
-
+    //   track('update query', global.nativePerformanceNow(), () => {
+    //     this.setState({ searchText }, () => {
+    //       this._executeSearch();
+    //     });
+    //   })
+  };
 
   _executeSearch = () => {
     let q = this.state.searchText.toLowerCase();

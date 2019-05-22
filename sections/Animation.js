@@ -12,7 +12,7 @@ import stall from './stall';
 let BLUE = '#002B7F';
 let WHITE = '#FFF';
 let RED = '#CE1126';
-let USE_NATIVE_DRIVER = true;
+let USE_NATIVE_DRIVER = false;
 
 export default class App extends React.Component {
   progress = new Animated.Value(0);
@@ -48,7 +48,7 @@ export default class App extends React.Component {
         <Button title="Reverse" onPress={this._reverseAnimation} />
         <Button title="Pause" onPress={this._pauseAnimation} />
         <Button title="Reset" onPress={this._resetAnimation} />
-        <Button title="Stall JS thread" onPress={stall} />
+        <Button title="Stall JS thread" onPress={() => stall()} />
       </View>
     );
   }

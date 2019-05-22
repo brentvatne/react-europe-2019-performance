@@ -58,7 +58,7 @@ class Home extends React.Component {
   scrollY = new Animated.Value(0);
   handleScroll = Animated.event(
     [{ nativeEvent: { contentOffset: { y: this.scrollY } } }],
-    { useNativeDriver: true }
+    { useNativeDriver: false }
   );
 
   render() {
@@ -97,7 +97,7 @@ class Home extends React.Component {
           scrollEventThrottle={16}
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
-          <TouchableOpacity onPress={stall}>
+          <TouchableOpacity onPress={() => stall()}>
             <Animated.Text
               style={{
                 opacity,
@@ -142,7 +142,12 @@ class Home extends React.Component {
 
           {this.props.user ? (
             <Text
-              style={{ marginTop: 15, color: '#888', textAlign: 'center', marginHorizontal: 20 }}>
+              style={{
+                marginTop: 15,
+                color: '#888',
+                textAlign: 'center',
+                marginHorizontal: 20,
+              }}>
               Signed in as {this.props.user.name}
             </Text>
           ) : null}
@@ -160,7 +165,18 @@ class Home extends React.Component {
             opacity: underlayOpacity,
           }}
         />
+        <Emoji />
       </SafeAreaView>
+    );
+  }
+}
+
+class Emoji extends React.Component {
+  render() {
+    // stall(100);
+
+    return (
+      <Text style={{ position: 'absolute', bottom: 15, left: 15 }}>🙃</Text>
     );
   }
 }
